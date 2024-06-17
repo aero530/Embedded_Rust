@@ -7,6 +7,23 @@ cargo generate esp-rs/esp-idf-template cargo
 
 Windows projects must add `ESP_IDF_PATH_ISSUES = 'warn'` to the `[env]` section of `.cargo/config.toml`.
 
+## Compile project
+
+```bash
+cargo build
+```
+
+## Flash code
+
+```bash
+espflash flash target/<mcu-target>/debug/<project-name>
+```
+## Monitor
+
+```bash
+espflash monitor /dev/ttyUSB0
+```
+
 ## Links
 
 * [ESP32 C6 Dev Kit N8](https://www.waveshare.com/esp32-c6-dev-kit-n8.htm)
@@ -39,6 +56,10 @@ $Env:LIBCLANG_PATH = "C:\Users\phil\.rustup\toolchains\esp\xtensa-esp32-elf-clan
 $Env:PATH = "C:\Users\phil\.rustup\toolchains\esp\xtensa-esp32-elf-clang\esp-clang\bin;" + $Env:PATH
 $Env:PATH = "C:\Users\phil\.rustup\toolchains\esp\xtensa-esp-elf\bin;" + $Env:PATH
 ```
+
+> ----
+> Project folder must be at root of drive so the path names are short.  Building the esp toolchain will fail if the path names are too long.
+> ----
 
 ## WSL Setup
 
@@ -87,4 +108,5 @@ sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv 
 * Add the environment variables to your shell profile directly:
 
 * Add the content of $HOME/export-esp.sh to your shell’s profile: cat $HOME/export-esp.sh >> [path to profile], for example, cat $HOME/export-esp.sh >> ~/.bashrc.
+
 Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
