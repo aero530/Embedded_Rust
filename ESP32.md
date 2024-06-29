@@ -32,6 +32,37 @@ espflash monitor /dev/ttyUSB0
 * [ESP32 C6 HAL Docs](https://docs.rs/esp32c6-hal/latest/esp32c6_hal/)
 * [The Rust on ESP Book](https://esp-rs.github.io/book/overview/using-the-standard-library.html)
 
+
+## Linux Setup
+
+### Setup Rust
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential pkg-config libssl-dev libudev-dev
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+**restart terminal**
+
+### Setup ESP Requirements & Tooling
+```bash
+sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+cargo install espup
+espup install
+cargo install cargo-generate
+cargo install ldproxy
+cargo install cargo-espflash
+cargo install espflash
+```
+
+### Setup env variables
+
+* Add the environment variables to your shell profile directly:
+
+* Add the content of $HOME/export-esp.sh to your shell’s profile: `cat $HOME/export-esp.sh >> [path to profile]`, for example, `cat $HOME/export-esp.sh >> ~/.bashrc`.
+
+Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
+
 ## Windows Setup (Power Shell)
 
 ### Install Python
@@ -103,10 +134,10 @@ cargo install ldproxy
 sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
 ```
 
-### Setup evn variables
+### Setup env variables
 
 * Add the environment variables to your shell profile directly:
 
-* Add the content of $HOME/export-esp.sh to your shell’s profile: cat $HOME/export-esp.sh >> [path to profile], for example, cat $HOME/export-esp.sh >> ~/.bashrc.
+* Add the content of $HOME/export-esp.sh to your shell’s profile: `cat $HOME/export-esp.sh >> [path to profile]`, for example, `cat $HOME/export-esp.sh >> ~/.bashrc`.
 
 Refresh the configuration by restarting the terminal session or by running source [path to profile], for example, source ~/.bashrc.
