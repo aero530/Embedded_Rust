@@ -16,8 +16,7 @@ Follow instructions at [https://rustup.rs/](https://rustup.rs/)
 ### Install [Cargo Flash](https://github.com/probe-rs/probe-rs/tree/master/cargo-flash) & [Cargo Embed](https://github.com/probe-rs/probe-rs/tree/master/cargo-embed)
 
 ```console
-> cargo install cargo-flash
-> cargo install cargo-embed
+> cargo binstall probe-rs-tools
 ```
 
 ## Install arm-none-eabi-gdb
